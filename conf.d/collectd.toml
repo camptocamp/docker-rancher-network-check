@@ -1,0 +1,7 @@
+[template]
+src = "20ping.conf.tmpl"
+dest = "/etc/collectd/collectd.conf.d/20ping.conf"
+keys = [
+  "/self/service/containers",
+]
+reload_cmd = "/usr/bin/sv force-restart collectd"

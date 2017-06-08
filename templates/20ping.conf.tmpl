@@ -1,0 +1,5 @@
+<Plugin "ping">
+  {{ range $container := ls "/self/service/containers" }}
+    Host "{{ getv (printf "/self/service/containers/%s/primary_ip" $container) }}"
+  {{ end }}
+</Plugin>
