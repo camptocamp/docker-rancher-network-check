@@ -1,4 +1,4 @@
 #!/bin/sh
 
 exec 2>&1
-exec /confd/confd --backend rancher --prefix /2016-07-29
+exec /confd/confd --interval 10 --backend rancher --prefix /2016-07-29
