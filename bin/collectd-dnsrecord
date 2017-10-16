@@ -1,0 +1,14 @@
+#!/bin/bash
+
+HOSTNAME="${COLLECTD_HOSTNAME:-$(hostname -f)}"
+INTERVAL="${COLLECTD_INTERVAL:-10}"
+
+while sleep "$INTERVAL"; do
+  if [ -n "$(timeout 2s dig $1 +short)" ]; then
+    n=1
+  else
+    n=0
+  fi
+
+  echo "PUTVAL $HOSTNAME/dnsrecord/current interval=$INTERVAL N:$n"
+done
